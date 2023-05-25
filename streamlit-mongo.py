@@ -12,7 +12,7 @@ try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 
-    db = client.memes
+    db = client.nosql
     print("MongoDB Connected successfully!")
 except:
     print("Could not connect to MongoDB")
@@ -24,7 +24,7 @@ st.title("mongo db conn")
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    items = db.memes_info.find()
+    items = db.nosql_info.find()
     items = list(items)  # make hashable for st.cache_data
     return items
 
